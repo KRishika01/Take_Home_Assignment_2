@@ -6,21 +6,24 @@ import flight.reservation.plane.Helicopter;
 import flight.reservation.plane.PassengerDrone;
 import flight.reservation.plane.PassengerPlane;
 import flight.reservation.plane.Aircraft;
+import flight.reservation.flightObserver.FlightObserver;
+import flight.reservation.flightSubject.FlightSubject;
 
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class ScheduledFlight extends Flight {
+public class ScheduledFlight extends Flight implements FlightSubject{
 
     private final List<Passenger> passengers;
     private final Date departureTime;
     private double currentPrice = 100;
-
+    private final List<FlightObserver> observers;
     public ScheduledFlight(int number, Airport departure, Airport arrival, Aircraft aircraft, Date departureTime) {
         super(number, departure, arrival, aircraft);
         this.departureTime = departureTime;
         this.passengers = new ArrayList<>();
+        this.observers = new ArrayList<>();
     }
 
     public ScheduledFlight(int number, Airport departure, Airport arrival, Aircraft aircraft, Date departureTime, double currentPrice) {
@@ -28,6 +31,7 @@ public class ScheduledFlight extends Flight {
         this.departureTime = departureTime;
         this.passengers = new ArrayList<>();
         this.currentPrice = currentPrice;
+        this.observers = new ArrayList<>();
     }
 
     public int getCrewMemberCapacity() throws NoSuchFieldException {
@@ -46,6 +50,9 @@ public class ScheduledFlight extends Flight {
 
     public void addPassengers(List<Passenger> passengers) {
         this.passengers.addAll(passengers);
+        passengers.forEach(this::addObserver);
+        notifyObserver("You have been added to the flight.");
+
     }
 
     public void removePassengers(List<Passenger> passengers) {
@@ -81,8 +88,22 @@ public class ScheduledFlight extends Flight {
     public double getCurrentPrice() {
         return currentPrice;
     }
-
     public void setCurrentPrice(double currentPrice) {
         this.currentPrice = currentPrice;
+        this.notifyObserver("The price has changed to: " + currentPrice);
+    }
+    @Override
+    public void addObserver(FlightObserver observer){
+        observers.add(observer);
+    }
+    @Override
+    public void removeObserver(FlightObserver observer){
+        observers.remove(observer);
+    }
+    @Override
+    public void notifyObserver(String message){
+        for(FlightObserver obs: observers){
+            obs.update(this, message);
+        }
     }
 }
