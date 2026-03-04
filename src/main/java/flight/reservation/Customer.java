@@ -37,23 +37,6 @@ public class Customer {
         return order;
     }
 
-<<<<<<< HEAD
-    // private boolean isOrderValid(List<String> passengerNames,
-    // List<ScheduledFlight> flights) {
-    // boolean valid = true;
-    // valid = valid && !FlightOrder.getNoFlyList().contains(this.getName());
-    // valid = valid && passengerNames.stream().noneMatch(passenger ->
-    // FlightOrder.getNoFlyList().contains(passenger));
-    // valid = valid && flights.stream().allMatch(scheduledFlight -> {
-    // try {
-    // return scheduledFlight.getAvailableCapacity() >= passengerNames.size();
-    // } catch (NoSuchFieldException e) {
-    // e.printStackTrace();
-    // return false;
-    // }
-    // });
-    // return valid;
-    // }
     private boolean isOrderValid(List<String> passengerNames,
             List<ScheduledFlight> flights) {
 
@@ -72,8 +55,6 @@ public class Customer {
         return chain.validate(context);
     }
 
-=======
->>>>>>> 885be0a37c9f499a9d9f74ef62825af41608495e
     public String getEmail() {
         return email;
     }
