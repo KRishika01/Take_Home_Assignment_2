@@ -33,7 +33,7 @@ public class AdapterPatternTest {
     public void setUp() {
         // Create Stripe API instance (Adaptee)
         // Note: Using a dummy API key for testing purposes
-        stripe = new Stripe("test_api_key_placeholder", "customer@example.com");
+        stripe = new Stripe("sk_test_api_key_placeholder", "customer@example.com");
         
         // Create Adapter to make Stripe compatible with PaymentStrategy
         stripeAdapter = new StripePaymentAdapter(stripe, "tok_visa_4242");
