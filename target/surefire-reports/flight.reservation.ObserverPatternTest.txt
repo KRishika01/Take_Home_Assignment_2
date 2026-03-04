@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: flight.reservation.ObserverPatternTest
 -------------------------------------------------------------------------------
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in flight.reservation.ObserverPatternTest
+Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in flight.reservation.ObserverPatternTest

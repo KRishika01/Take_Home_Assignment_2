@@ -11,10 +11,10 @@ import java.util.Date;
 import java.util.List;
 
 public class FlightOrder extends Order {
-    private final List<ScheduledFlight> flights;
+    final List<ScheduledFlight> flights;
     static List<String> noFlyList = Arrays.asList("Peter", "Johannes");
 
-    public FlightOrder(List<ScheduledFlight> flights) {
+    FlightOrder(List<ScheduledFlight> flights) {
         this.flights = flights;
     }
 
@@ -26,20 +26,6 @@ public class FlightOrder extends Order {
         return flights;
     }
 
-    private boolean isOrderValid(Customer customer, List<String> passengerNames, List<ScheduledFlight> flights) {
-        boolean valid = true;
-        valid = valid && !noFlyList.contains(customer.getName());
-        valid = valid && passengerNames.stream().noneMatch(passenger -> noFlyList.contains(passenger));
-        valid = valid && flights.stream().allMatch(scheduledFlight -> {
-            try {
-                return scheduledFlight.getAvailableCapacity() >= passengerNames.size();
-            } catch (NoSuchFieldException e) {
-                e.printStackTrace();
-                return false;
-            }
-        });
-        return valid;
-    }
 
     public boolean processPayment(PaymentStrategy paymentStrategy) throws IllegalStateException {
         if (isClosed()) {
