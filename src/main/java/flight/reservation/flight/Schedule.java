@@ -20,7 +20,6 @@ public class Schedule {
     public void scheduleFlight(Flight flight, Date date) {
         ScheduledFlight scheduledFlight = new ScheduledFlight(flight.getNumber(), flight.getDeparture(), flight.getArrival(), flight.getAircraft(), date);
         scheduledFlights.add(scheduledFlight);
-        scheduledFlight.notifyObserver("Flight has been scheduled for "+ scheduledFlight.getDepartureTime());
     }
 
     public void removeFlight(Flight flight) {

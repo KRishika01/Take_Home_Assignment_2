@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="flight.reservation.ScheduleTest$GivenAnExistingSchedule$AFlightIsRemoved" time="0.017" tests="2" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="flight.reservation.order.FlightOrderBuilderTest" time="0.041" tests="5" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="gnome"/>
     <property name="awt.toolkit" value="sun.awt.X11.XToolkit"/>
@@ -10,7 +10,7 @@
     <property name="java.vm.vendor" value="Ubuntu"/>
     <property name="sun.arch.data.model" value="64"/>
     <property name="java.vendor.url" value="https://ubuntu.com/"/>
-    <property name="user.timezone" value="Asia/Kolkata"/>
+    <property name="user.timezone" value=""/>
     <property name="java.vm.specification.version" value="11"/>
     <property name="os.name" value="Linux"/>
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
@@ -58,6 +58,9 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="thenAFlightShouldBeRemoved" classname="flight.reservation.ScheduleTest$GivenAnExistingSchedule$AFlightIsRemoved" time="0.002"/>
-  <testcase name="thenTheCorrectFlightShouldBeRemoved" classname="flight.reservation.ScheduleTest$GivenAnExistingSchedule$AFlightIsRemoved" time="0.01"/>
+  <testcase name="testInsufficientCapacity" classname="flight.reservation.order.FlightOrderBuilderTest" time="0.02"/>
+  <testcase name="testNoFlyListCustomer" classname="flight.reservation.order.FlightOrderBuilderTest" time="0.001"/>
+  <testcase name="testSuccessfulBuild" classname="flight.reservation.order.FlightOrderBuilderTest" time="0.009"/>
+  <testcase name="testNoFlyListPassenger" classname="flight.reservation.order.FlightOrderBuilderTest" time="0.001"/>
+  <testcase name="testMissingMandatoryFields" classname="flight.reservation.order.FlightOrderBuilderTest" time="0.001"/>
 </testsuite>

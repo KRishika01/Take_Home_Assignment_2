@@ -1,9 +1,6 @@
 package flight.reservation;
 
-import flight.reservation.flight.ScheduledFlight;
-import flight.reservation.flightObserver.FlightObserver;
-
-public class Passenger implements FlightObserver{
+public class Passenger {
 
     private final String name;
 
@@ -13,10 +10,6 @@ public class Passenger implements FlightObserver{
 
     public String getName() {
         return name;
-    }
-    @Override
-    public void update(ScheduledFlight flight, String message){
-        System.out.println("Notification for " + name + ": Flight" + flight.getNumber() + "- " + message);
     }
 
 }
