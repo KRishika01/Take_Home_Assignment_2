@@ -4,6 +4,7 @@ import flight.reservation.flight.ScheduledFlight;
 import flight.reservation.order.CustomerNoFlyValidator;
 import flight.reservation.order.FlightCapacityValidator;
 import flight.reservation.order.FlightOrder;
+import flight.reservation.order.FlightOrderBuilder;
 import flight.reservation.order.Order;
 import flight.reservation.order.OrderValidationContext;
 import flight.reservation.order.OrderValidationHandler;
@@ -26,22 +27,17 @@ public class Customer {
     }
 
     public FlightOrder createOrder(List<String> passengerNames, List<ScheduledFlight> flights, double price) {
-        if (!isOrderValid(passengerNames, flights)) {
-            throw new IllegalStateException("Order is not valid");
-        }
-        FlightOrder order = new FlightOrder(flights);
-        order.setCustomer(this);
-        order.setPrice(price);
-        List<Passenger> passengers = passengerNames
-                .stream()
-                .map(Passenger::new)
-                .collect(Collectors.toList());
-        order.setPassengers(passengers);
-        order.getScheduledFlights().forEach(scheduledFlight -> scheduledFlight.addPassengers(passengers));
+        FlightOrder order = new FlightOrderBuilder()
+                .forCustomer(this)
+                .withPassengers(passengerNames)
+                .onFlights(flights)
+                .atPrice(price)
+                .build();
         orders.add(order);
         return order;
     }
 
+<<<<<<< HEAD
     // private boolean isOrderValid(List<String> passengerNames,
     // List<ScheduledFlight> flights) {
     // boolean valid = true;
@@ -76,6 +72,8 @@ public class Customer {
         return chain.validate(context);
     }
 
+=======
+>>>>>>> 885be0a37c9f499a9d9f74ef62825af41608495e
     public String getEmail() {
         return email;
     }

@@ -8,11 +8,11 @@ import java.util.UUID;
 
 public class Order {
 
-    private final UUID id;
-    private double price;
-    private boolean isClosed = false;
-    private Customer customer;
-    private List<Passenger> passengers;
+    UUID id;
+    double price;
+    boolean isClosed = false;
+    Customer customer;
+    List<Passenger> passengers;
 
     public Order() {
         this.id = UUID.randomUUID();
@@ -26,7 +26,7 @@ public class Order {
         return price;
     }
 
-    public void setPrice(double price) {
+    void setPrice(double price) {
         this.price = price;
     }
 
@@ -34,7 +34,7 @@ public class Order {
         return customer;
     }
 
-    public void setCustomer(Customer customer) {
+    void setCustomer(Customer customer) {
         this.customer = customer;
     }
 
@@ -42,7 +42,7 @@ public class Order {
         return passengers;
     }
 
-    public void setPassengers(List<Passenger> passengers) {
+    void setPassengers(List<Passenger> passengers) {
         this.passengers = passengers;
     }
 
