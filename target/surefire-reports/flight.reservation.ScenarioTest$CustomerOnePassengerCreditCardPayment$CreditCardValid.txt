@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: flight.reservation.ScenarioTest$CustomerOnePassengerCreditCardPayment$CreditCardValid
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.31 s - in flight.reservation.ScenarioTest$CustomerOnePassengerCreditCardPayment$CreditCardValid
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.4 s - in flight.reservation.ScenarioTest$CustomerOnePassengerCreditCardPayment$CreditCardValid
